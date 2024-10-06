@@ -8,7 +8,7 @@ const TokenBoosts = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [boostFilter, setBoostFilter] = useState(0);
-    const [chainIdFilter, setChainIdFilter] = useState('solana');
+    const [chainIdFilter, setChainIdFilter] = useState('');
 
     useEffect(() => {
         const fetchTokens = async () => {
@@ -18,7 +18,7 @@ const TokenBoosts = () => {
                     new Map(response.data.map(token => [token.tokenAddress, token])).values()
                 );
                 setTokens(uniqueTokens);
-                setFilteredTokens(uniqueTokens);
+                setFilteredTokens(uniqueTokens);                
                 setLoading(false);
             } catch (err) {
                 setError(err);
