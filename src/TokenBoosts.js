@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TokenBoosts.css'; // Import the CSS file
+import CopyToClipboard from './CopyToClipboard';
 
 const TokenBoosts = () => {
     const [tokens, setTokens] = useState([]);
@@ -107,6 +108,7 @@ const TokenBoosts = () => {
                             <p><span>Boosts: {token.amount}</span></p>
                             <p><span>Chain: {token.chainId}</span></p>
                             <p><span>Token Address: {token.tokenAddress}</span></p>
+                            <CopyToClipboard textToCopy={token.tokenAddress} displayText={'Copy Token Address'}/>
                             <p><span>Description: {token.description}</span></p>
                             {/* Remove time part from date */}
                             <ul className="links">
