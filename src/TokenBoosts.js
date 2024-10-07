@@ -65,7 +65,7 @@ const TokenBoosts = () => {
 
     return (
         <div className="token-boosts">
-            <h1>Token Boosts</h1>
+            <h1>Latest Token Boosts</h1>
             <div style={{ textAlign: 'center', padding: '20px', marginBottom: '20px', backgroundColor: '#1f1f1f', fontSize: '14px' }}>
       <p>&copy; {new Date().getFullYear()} Rohcodes. All Rights Reserved.</p>
       <p>
