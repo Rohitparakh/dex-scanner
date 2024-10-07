@@ -24,6 +24,7 @@ h1 {
 .filters label {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .filters input,

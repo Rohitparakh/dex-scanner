@@ -7,8 +7,8 @@ const TokenBoosts = () => {
     const [filteredTokens, setFilteredTokens] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [boostFilter, setBoostFilter] = useState(0);
-    const [chainIdFilter, setChainIdFilter] = useState('');
+    const [boostFilter, setBoostFilter] = useState(500);
+    const [chainIdFilter, setChainIdFilter] = useState('solana');
 
     useEffect(() => {
         const fetchTokens = async () => {
@@ -29,12 +29,13 @@ const TokenBoosts = () => {
         fetchTokens();
     }, []);
 
-    useEffect(()=>{
-        console.log(tokens)
-    },[tokens])
-    useEffect(()=>{
-        console.log(filteredTokens)
-    },[filteredTokens])
+ useEffect(()=>{
+    handleFilterChange();
+ },[tokens])
+
+ useEffect(()=>{
+    handleFilterChange();
+ },[boostFilter, chainIdFilter])
 
     const handleFilterChange = () => {
         let filtered = tokens;
@@ -64,7 +65,15 @@ const TokenBoosts = () => {
     return (
         <div className="token-boosts">
             <h1>Token Boosts</h1>
-            <p><a href="rohcodes.com">-by Rohcodes</a></p>
+            <div style={{ textAlign: 'center', padding: '20px', marginBottom: '20px', backgroundColor: '#1f1f1f', fontSize: '14px' }}>
+      <p>&copy; {new Date().getFullYear()} Rohcodes. All Rights Reserved.</p>
+      <p>
+        Designed and Developed by{' '}
+        <a href="https://rohcodes.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'cornflowerblue' }}>
+          Rohcodes
+        </a>
+      </p>
+    </div>
             <div className="filters">
                 <label>
                     Boost Filter:
@@ -92,7 +101,7 @@ const TokenBoosts = () => {
             <ul className="token-list">
                 {filteredTokens.map(token => (
                     <li key={`${token.tokenAddress}`} className="token-item">
-                        <img src={token.icon} alt={`${token.name} icon`} className="token-icon" />
+                        <img src={token.icon} alt={`${token.address} icon`} className="token-icon" />
                         <div className="token-details">
                             <p><span>Total Boosts: {token.totalAmount}</span></p>
                             <p><span>Boosts: {token.amount}</span></p>
