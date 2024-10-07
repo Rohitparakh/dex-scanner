@@ -40,7 +40,7 @@ const TokenBoosts = () => {
         let filtered = tokens;
 
         if (boostFilter>0) {
-            filtered = filtered.filter(token => token.amount >= boostFilter);
+            filtered = filtered.filter(token => token.totalAmount >= boostFilter);
         }
 
         if (chainIdFilter) {
@@ -64,6 +64,7 @@ const TokenBoosts = () => {
     return (
         <div className="token-boosts">
             <h1>Token Boosts</h1>
+            <p><a href="rohcodes.com">-by Rohcodes</a></p>
             <div className="filters">
                 <label>
                     Boost Filter:
